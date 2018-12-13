@@ -26,7 +26,7 @@ RCT_EXPORT_METHOD(getIDFA:(RCTPromiseResolveBlock)resolve
     NSUUID *advertisingIdentifier = [[ASIdentifierManager sharedManager] advertisingIdentifier];
     BOOL isAdvertisingTrackingEnabled = [[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled];
     resolve(@{
-      @"advertisingIdentifier": advertisingIdentifier,
+      @"advertisingIdentifier": [advertisingIdentifier UUIDString],
       @"isAdvertisingTrackingEnabled": @(isAdvertisingTrackingEnabled),
     });
 }
