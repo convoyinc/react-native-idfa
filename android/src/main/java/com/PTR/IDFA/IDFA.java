@@ -23,6 +23,10 @@ public class IDFA extends ReactContextBaseJavaModule {
         try {
             AdvertisingIdClient.Info adInfo = AdvertisingIdClient.getAdvertisingIdInfo(this.getReactApplicationContext());
             String advertisingIdentifier = adInfo.getId();
+            if (null == advertisingIdentifier) {
+              advertisingIdentifier = "";
+            }
+
             Boolean isAdvertisingTrackingEnabled = adInfo.isLimitAdTrackingEnabled();
 
             WritableMap response = new WritableNativeMap();
